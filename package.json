@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "bash": "bash",
+    "bundlesize": "bundlesize",
     "css": "npm-run-all css-lint css-compile css-prefix css-minify",
     "css-docs": "npm-run-all css-lint-docs css-compile-docs css-prefix-docs css-minify-docs",
     "css-lint": "bundle exec scss-lint --config .scss-lint.yml scss/*.scss",
@@ -54,7 +55,7 @@
     "release-version": "node build/change-version.js",
     "release-zip": "cd dist/ && zip -r9 bootstrap-$npm_package_version-dist.zip * && shx mv bootstrap-$npm_package_version-dist.zip ..",
     "dist": "npm-run-all --parallel css js css-docs",
-    "test": "npm-run-all dist js-test docs",
+    "test": "npm-run-all dist js-test docs bundlesize",
     "watch": "npm-run-all --parallel watch-css watch-js",
     "watch-css": "nodemon --ignore js/ --ignore dist/ -e scss -x \"npm run css && npm run css-docs\"",
     "watch-js": "nodemon --ignore scss/ --ignore js/dist/ --ignore dist/ -e js -x \"npm run js-compile-plugins\""
@@ -82,6 +83,7 @@
     "babel-plugin-external-helpers": "^7.0.0-beta.0",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
     "babel-preset-env": "^2.0.0-beta.0",
+    "bundlesize": "^0.14.4",
     "clean-css-cli": "^4.1.6",
     "cross-env": "^5.0.5",
     "eslint": "^4.2.0",
@@ -128,6 +130,28 @@
     "Safari >= 9",
     "Android >= 4.4",
     "Opera >= 30"
+  ],
+  "bundlesize": [
+    {
+      "path": "./dist/css/bootstrap*.css",
+      "maxSize": "25 kB"
+    },
+    {
+      "path": "./dist/js/bootstrap.bundle.js",
+      "maxSize": "50 kB"
+    },
+    {
+      "path": "./dist/js/bootstrap.bundle.min.js",
+      "maxSize": "25 kB"
+    },
+    {
+      "path": "./dist/js/bootstrap.js",
+      "maxSize": "20 kB"
+    },
+    {
+      "path": "./dist/js/bootstrap.min.js",
+      "maxSize": "15 kB"
+    }
   ],
   "jspm": {
     "registry": "npm",
