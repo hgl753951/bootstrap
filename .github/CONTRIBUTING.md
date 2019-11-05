@@ -19,13 +19,14 @@ and [submitting pull requests](#pull-requests), but please respect the following
 restrictions:
 
 * Please **do not** use the issue tracker for personal support requests.  Stack
-  Overflow ([`bootstrap-4`](https://stackoverflow.com/questions/tagged/bootstrap-4) tag), [Slack](https://bootstrap-slack.herokuapp.com/) or [IRC](README.md#community) are better places to get help.
+  Overflow ([`bootstrap-4`](https://stackoverflow.com/questions/tagged/bootstrap-4) tag),
+  [Slack](https://bootstrap-slack.herokuapp.com/) or [IRC](README.md#community) are better places to get help.
 
 * Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
 
 * Please **do not** post comments consisting solely of "+1" or ":thumbsup:".
-  Use [GitHub's "reactions" feature](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments)
+  Use [GitHub's "reactions" feature](https://blog.github.com/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/)
   instead. We reserve the right to delete comments which violate this rule.
 
 * Please **do not** open issues regarding the official themes offered on <https://themes.getbootstrap.com/>.
@@ -57,8 +58,7 @@ Good bug reports are extremely helpful, so thanks!
 
 Guidelines for bug reports:
 
-0. **Validate and lint your code** &mdash; [validate your HTML](https://html5.validator.nu/)
-   and [lint your HTML](https://github.com/twbs/bootlint) to ensure your
+0. **[validate your HTML](https://html5.validator.nu/)** to ensure your
    problem isn't caused by a simple error in your own code.
 
 1. **Use the GitHub issue search** &mdash; check if the issue has already been
@@ -105,13 +105,9 @@ When feasible, we aim to report such upstream bugs to the relevant browser vendo
 | Vendor(s)     | Browser(s)                   | Rendering engine | Bug reporting website(s)                                                              | Notes                                                    |
 | ------------- | ---------------------------- | ---------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | Mozilla       | Firefox                      | Gecko            | https://bugzilla.mozilla.org/enter_bug.cgi                                            | "Core" is normally the right product option to choose.   |
-| Apple         | Safari                       | WebKit           | https://bugs.webkit.org/enter_bug.cgi?product=WebKit <br> https://bugreport.apple.com | In Apple's bug reporter, choose "Safari" as the product. |
-| Google, Opera | Chrome, Chromium, Opera v15+ | Blink            | https://code.google.com/p/chromium/issues/list                                        | Click the "New issue" button.                            |
+| Apple         | Safari                       | WebKit           | https://bugs.webkit.org/enter_bug.cgi?product=WebKit <br> https://bugreport.apple.com/ | In Apple's bug reporter, choose "Safari" as the product. |
+| Google, Opera | Chrome, Chromium, Opera v15+ | Blink            | https://bugs.chromium.org/p/chromium/issues/list                                      | Click the "New issue" button.                            |
 | Microsoft     | Edge                         | EdgeHTML         | https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/                 |                                                          |
-
-### Issues bots
-
-[@twbs-lmvtfy](https://github.com/twbs-lmvtfy) is a Bootstrap bot that hangs out in our GitHub issue tracker and automatically checks for HTML validation errors in live examples (e.g. jsFiddles, JS Bins, Bootplys, Plunks, CodePens, etc.) posted in issue comments. If it finds any errors, it will post a follow-up comment on the issue and point out the errors. If this happens with an example you've posted, please fix the errors and post an updated live example. If you opened a bug report, please check whether the bug still occurs with your revised, valid live example. If the bug no longer occurs, it was probably due to your invalid HTML rather than something in Bootstrap and we'd appreciate it if you could close out the GitHub issue.
 
 
 ## Feature requests
@@ -140,11 +136,11 @@ project (indentation, accurate comments, etc.) and any other requirements
 **Do not edit `bootstrap.css`, or `bootstrap.js`
 directly!** Those files are automatically generated. You should edit the
 source files in [`/bootstrap/scss/`](https://github.com/twbs/bootstrap/tree/master/scss)
-and/or [`/bootstrap/js/`](https://github.com/twbs/bootstrap/tree/master/js) instead.
+and/or [`/bootstrap/js/src/`](https://github.com/twbs/bootstrap/tree/master/js/src) instead.
 
 Similarly, when contributing to Bootstrap's documentation, you should edit the
 documentation source files in
-[the `/bootstrap/docs/` directory of the `master` branch](https://github.com/twbs/bootstrap/tree/master/docs).
+[the `/bootstrap/site/docs/` directory of the `master` branch](https://github.com/twbs/bootstrap/tree/master/site/docs).
 **Do not edit the `gh-pages` branch.** That branch is generated from the
 documentation source files and is managed separately by the Bootstrap Core Team.
 
@@ -178,7 +174,7 @@ included in the project:
    ```
 
 4. Commit your changes in logical chunks. Please adhere to these [git commit
-   message guidelines](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+   message guidelines](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
    or your code is unlikely be merged into the main project. Use Git's
    [interactive rebase](https://help.github.com/articles/about-git-rebase/)
    feature to tidy up your commits before making them public.
@@ -199,26 +195,17 @@ included in the project:
     with a clear title and description against the `master` branch.
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project owners to
-license your work under the terms of the [MIT License](LICENSE) (if it
+license your work under the terms of the [MIT License](../LICENSE) (if it
 includes code changes) and under the terms of the
-[Creative Commons Attribution 3.0 Unported License](docs/LICENSE)
+[Creative Commons Attribution 3.0 Unported License](https://creativecommons.org/licenses/by/3.0/)
 (if it includes documentation changes).
-
-### Pull request bots
-
-[@twbs-rorschach](https://github.com/twbs-rorschach) is a Bootstrap bot that hangs out in our GitHub issue tracker and automatically checks all pull requests for a few simple common mistakes. It's possible that Rorschach might leave a comment on your pull request and then close it. If that happens, simply fix the problem(s) mentioned in the comment (there should be link(s) in the comment explaining the problem(s) in detail) and then either:
-
-* Push the revised version to your pull request's branch and post a comment on the pull request saying that you've fixed the problem(s). One of the Bootstrap Core Team members will then come along and reopen your pull request.
-* Or you can just open a new pull request for your revised version.
-
-[@twbs-savage](https://github.com/twbs-savage) is a Bootstrap bot that automatically runs cross-browser tests (via [Sauce](https://saucelabs.com/) and Travis CI) on JavaScript pull requests. Savage will leave a comment on pull requests stating whether cross-browser JS tests passed or failed, with a link to the full Travis build details. If your pull request fails, check the Travis log to see which browser + OS combinations failed. Each browser test in the Travis log includes a link to a Sauce page with details about the test. On those details pages, you can watch a screencast of the test run to see exactly which unit tests failed.
 
 
 ## Code guidelines
 
 ### HTML
 
-[Adhere to the Code Guide.](http://codeguide.co/#html)
+[Adhere to the Code Guide.](https://codeguide.co/#html)
 
 - Use tags and elements appropriate for an HTML5 doctype (e.g., self-closing tags).
 - Use CDNs and HTTPS for third-party JS when possible. We don't use protocol-relative URLs in this case because they break when viewing the page locally via `file://`.
@@ -226,10 +213,10 @@ includes code changes) and under the terms of the
 
 ### CSS
 
-[Adhere to the Code Guide.](http://codeguide.co/#css)
+[Adhere to the Code Guide.](https://codeguide.co/#css)
 
 - When feasible, default color palettes should comply with [WCAG color contrast guidelines](https://www.w3.org/TR/WCAG20/#visual-audio-contrast).
-- Except in rare cases, don't remove default `:focus` styles (via e.g. `outline: none;`) without providing alternative styles. See [this A11Y Project post](http://a11yproject.com/posts/never-remove-css-outlines/) for more details.
+- Except in rare cases, don't remove default `:focus` styles (via e.g. `outline: none;`) without providing alternative styles. See [this A11Y Project post](https://a11yproject.com/posts/never-remove-css-outlines/) for more details.
 
 ### JS
 
@@ -246,7 +233,7 @@ Run `npm run test` before committing to ensure your changes follow our coding st
 
 ## License
 
-By contributing your code, you agree to license your contribution under the [MIT License](LICENSE).
-By contributing to the documentation, you agree to license your contribution under the [Creative Commons Attribution 3.0 Unported License](docs/LICENSE).
+By contributing your code, you agree to license your contribution under the [MIT License](../LICENSE).
+By contributing to the documentation, you agree to license your contribution under the [Creative Commons Attribution 3.0 Unported License](https://creativecommons.org/licenses/by/3.0/).
 
 Prior to v3.1.0, Bootstrap's code was released under the Apache License v2.0.
